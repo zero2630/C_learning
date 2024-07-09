@@ -1,4 +1,4 @@
 tests/*
 .vscode/*
- pointers/*
- !pointers/*.c
+pointers/*
+!pointers/*.c
