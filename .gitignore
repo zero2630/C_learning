@@ -1,6 +1,4 @@
 tests/*
 .vscode/*
- */*
- !*/*.c
- !*/*.h
- !.gitignore
+ pointers/*
+ !pointers/*.c
