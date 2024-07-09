@@ -8,25 +8,25 @@ void main(){
     scanf("%[^\n]\n", p1);
     scanf("%[^\n]", p2);
 
-    do
+    while (*p1 != 0)
     {
         p1++;
-    } while (*p1 != 0);
+    }
 
-    do
+    while (*p2 != 0)
     {
         *p1 = *p2;
         p1++;
         p2++;
-    } while (*p2 != 0);
+    }
 
     p1 = p1_cash;
     
-    do
+    while (*p1 != 0)
     {
         printf("%c", *p1);
         p1++;
-    } while (*p1 != 0);
+    }
 
     printf("\n");
     

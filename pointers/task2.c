@@ -3,23 +3,25 @@
 void main(){
 
     int a[100];
-    int *p = a;
-    int num;
+    int count = 0;
 
-    do
+    scanf("%d", a + count);
+    count++;
+    
+    while (*(a + count - 1) != 0)
     {
-        scanf("%d", &num);
-        *p = num;
-        p++;
-    } while (num != 0);
+        scanf("%d", (a + count));
+        count++;
+    }
+    
+    count = 0;
 
-    p = a;
-
-    do
+    while (*(a + count) != 0)
     {
-        printf("%d ", *p);
-        p++;
-    } while (*p != 0);
+        printf("%d ", *(a + count));
+        count++;
+    }
+    printf("\n");
     
 
 }

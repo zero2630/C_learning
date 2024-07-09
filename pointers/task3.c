@@ -7,11 +7,11 @@ void main(){
     int counter = 0;
     scanf("%[^\n]", p);
 
-    do
+    while (*p != 0)
     {
         counter++;
         p++;
-    } while (*p != 0);
+    }
     
     printf("%d\n", counter);
     
