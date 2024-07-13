@@ -1,4 +1,7 @@
 tests/*
+tasks/*
 .vscode/*
 pointers/*
 !pointers/*.c
+functions/*
+!functions/*.c
