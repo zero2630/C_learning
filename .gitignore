@@ -5,3 +5,5 @@ pointers/*
 !pointers/*.c
 functions/*
 !functions/*.c
+structures/*
+!structures/*.c
