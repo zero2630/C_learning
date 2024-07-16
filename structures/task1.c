@@ -5,32 +5,31 @@ struct student
     char name[50];
     unsigned char age;
     unsigned char marks[10];
-    double average;
-    unsigned char has_fails;
 };
 
-double find_average(unsigned char marks[], unsigned length, unsigned char *has_fails)
+double find_average(unsigned char marks[], unsigned length)
 {
     double sum = 0;
     for(int i=0; i<length; i++)
     {
-        if(marks[i]==2) *has_fails = 1;
+        if(marks[i]==2) return 0;
         sum += marks[i];
     }
     return sum / length;
 }
 
 
-void best_student(struct student students[], unsigned length)
+void best_student(struct student students[], unsigned length, unsigned marks_length)
 {
     struct student best;
-    double best_average = 0;
+    double best_average = 0, average;
     for(int i=0; i<length; i++)
     {
-        if(!students[i].has_fails && students[i].average > best_average)
+        average = find_average(students[i].marks, marks_length);
+        if(average > best_average)
         {
             best = students[i];
-            best_average = students[i].average;
+            best_average = average;
         }
     }
 
@@ -40,7 +39,7 @@ void best_student(struct student students[], unsigned length)
         {
             printf("%c", best.name[i]);
         }
-        printf(", %hhu лет, средний балл: %lf\n", best.age, best.average);
+        printf(", %hhu лет, средний балл: %lf\n", best.age, best_average);
     }
     else printf("Таких студентов нет");
 }
@@ -58,10 +57,8 @@ void main(){
         {
             scanf("%hhu", &students[i].marks[j]);
         }
-        students[i].has_fails = 0;
-        students[i].average = find_average(students[i].marks, k, &(students[i].has_fails));
     }
 
-    best_student(students, n);
+    best_student(students, n, k);
 
 }

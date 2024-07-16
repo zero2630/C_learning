@@ -1,43 +1,43 @@
 #include <stdio.h>
 
-void sort_max(int *numbers, unsigned char length)
+void insert_sort_max(int *numbers, unsigned char length)
 {
-    char is_sorted = 0;
+    int location, current_val;
 
-    while(!is_sorted)
+    for(int i=1; i<length; i++)
     {
-        is_sorted = 1;
-        for(int i=1; i<length; i++)
+        current_val = numbers[i];
+        location = i-1;
+
+        while (location >= 0 && numbers[location] > current_val)
         {
-            if(numbers[i]<numbers[i-1])
-            {
-                int temp = numbers[i];
-                numbers[i] = numbers[i-1];
-                numbers[i-1] = temp;
-                is_sorted = 0;
-            }
+            numbers[location+1] = numbers[location];
+            location--;
         }
+        numbers[location+1] = current_val;
+        
     }
+
 }
 
-void sort_min(int *numbers, unsigned char length)
+void insert_sort_min(int *numbers, unsigned char length)
 {
-    char is_sorted = 0;
+    int location, current_val;
 
-    while(!is_sorted)
+    for(int i=1; i<length; i++)
     {
-        is_sorted = 1;
-        for(int i=1; i<length; i++)
+        current_val = numbers[i];
+        location = i-1;
+
+        while (location >= 0 && numbers[location] < current_val)
         {
-            if(numbers[i]>numbers[i-1])
-            {
-                int temp = numbers[i];
-                numbers[i] = numbers[i-1];
-                numbers[i-1] = temp;
-                is_sorted = 0;
-            }
+            numbers[location+1] = numbers[location];
+            location--;
         }
+        numbers[location+1] = current_val;
+        
     }
+
 }
 
 void main(){
@@ -56,11 +56,11 @@ void main(){
     switch (action)
     {
     case 1:
-        selected = sort_max;
+        selected = insert_sort_max;
         break;
 
     case 2:
-        selected = sort_min;
+        selected = insert_sort_min;
         break;
     
     default:
