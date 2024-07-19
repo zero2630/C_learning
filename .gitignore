@@ -7,3 +7,5 @@ functions/*
 !functions/*.c
 structures/*
 !structures/*.c
+dynamic_memory/*
+!dynamic_memory/*.c
