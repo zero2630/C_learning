@@ -9,3 +9,5 @@ structures/*
 !structures/*.c
 dynamic_memory/*
 !dynamic_memory/*.c
+flows/*
+!flows/*.c
